@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medi|map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link  rel="preconnect" href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+    
+    <link rel="stylesheet" href="../css/medi.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/hero.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    
+</head>
+<body>
+    <section>
+    <nav class="nav">
+        
+            <h1 id="logo"><span>MediAssit</span></h1>
+            <ul class="nav-style">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#hospital-navigation">Hospital Navigation</a></li>
+            </ul>    
+    </nav>
+    </section>
+    <section class="hero" id="about">
+        <div  class="hero-section">
+            <div class="hero-image">
+                <img src="https://smileindiatrust.org/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-10-at-11.46.24-AM.jpeg" alt="hero-pic">
+            </div>
+             <div class="titel">
+                <h3>Compassion</h3>
+                <p>We treat every patient with empathy, respect, and kindness. We understand that true healing requires human connection and personalized attention alongside clinical excellence.</p>
+             </div>
+             <div class="titel">
+                <h3>Excellence</h3>
+                <p>We are committed to achieving the highest standards in clinical outcomes, safety, and service. This drives our continuous investment in advanced technology and the ongoing training of our professional staff.</p>
+             </div>
+                <div class="titel">
+                    <h3>Innovation</h3>
+                    <p>We embrace innovation in medical research, technology, and patient care. We strive to stay at the forefront of medical advancements to provide our patients with the most effective and efficient treatments available.</p>
+                 </div>
+                 <div class="titel">
+                    <h3>Integrity</h3>
+                    <p>We uphold the highest ethical standards in all our interactions and decision-making processes. We are committed to transparency, honesty, and accountability in everything we do.</p>
+                </div>
+
+    </section>
+    <section
+        id="hospital-navigation"
+        class="indoor-page navigation-main"
+        aria-label="Hospital Indoor Navigation"
+    >
+        <section class="navigation-heading" aria-labelledby="pageTitle">
+            <div>
+                <p class="eyebrow" data-i18n="eyebrow">MediAssist care directions</p>
+                <h1 id="pageTitle" data-i18n="pageTitle">Hospital Indoor Navigation</h1>
+                <p class="page-subtitle" data-i18n="subtitle">Find your destination easily.</p>
+            </div>
+            <label class="language-control">
+                <span data-i18n="languageLabel">Language</span>
+                <select id="languageSelect" aria-label="Language">
+                    <option value="en">English</option>
+                    <option value="ta">தமிழ்</option>
+                </select>
+            </label>
+        </section>
+
+        <section class="map-controls" aria-label="Map controls">
+            <form id="searchForm" class="destination-search" role="search">
+                <label for="destinationSearch" data-i18n="searchLabel">Search rooms or departments</label>
+                <div class="search-row">
+                    <input
+                        id="destinationSearch"
+                        type="search"
+                        autocomplete="off"
+                        aria-autocomplete="list"
+                        aria-controls="searchResults"
+                        aria-expanded="false"
+                        placeholder="Try “Reception” or “Room 301”"
+                        aria-describedby="searchMessage"
+                    />
+                    <button class="button button-primary" type="submit" data-i18n="searchButton">Find route</button>
+                </div>
+                <div id="searchResults" class="search-results" role="listbox" hidden></div>
+                <p id="searchMessage" class="search-message" aria-live="polite"></p>
+            </form>
+
+            <label class="floor-control" for="floorSelect">
+                <span data-i18n="floorLabel">View floor</span>
+                <select id="floorSelect">
+                    <option value="ground">Ground Floor — தரைத்தளம்</option>
+                    <option value="second">Second Floor — இரண்டாம் தளம்</option>
+                    <option value="third">Third Floor — மூன்றாம் தளம்</option>
+                </select>
+            </label>
+        </section>
+
+        <section class="dashboard" aria-label="Hospital floor plan and directions">
+            <div class="map-panel">
+                <div class="map-panel-heading">
+                    <div>
+                        <p class="eyebrow" data-i18n="planLabel">Demonstration floor plan</p>
+                        <h2 id="floorHeading">Ground Floor — தரைத்தளம்</h2>
+                    </div>
+                    <span id="mapStatus" class="map-status" data-i18n="mapReady">Map ready</span>
+                </div>
+
+                <div class="map-viewport">
+                    <svg
+                        id="floorMap"
+                        class="floor-map"
+                        viewBox="0 0 1000 620"
+                        role="img"
+                        aria-labelledby="mapSvgTitle mapSvgDescription"
+                    >
+                        <title id="mapSvgTitle">Hospital demonstration floor plan</title>
+                        <desc id="mapSvgDescription">Rooms connected by walkable corridors.</desc>
+                    </svg>
+                </div>
+
+                <div class="map-legend" aria-label="Map legend">
+                    <span><i class="legend-swatch legend-care"></i><span data-i18n="legendCare">Care departments</span></span>
+                    <span><i class="legend-swatch legend-facility"></i><span data-i18n="legendFacility">Facilities</span></span>
+                    <span><i class="legend-swatch legend-emergency"></i><span data-i18n="legendEmergency">Emergency</span></span>
+                    <span><i class="legend-line"></i><span data-i18n="legendRoute">Your route</span></span>
+                </div>
+                <p class="demo-note" data-i18n="demoNote">
+                    Demonstration layout only. Room positions and corridors must be verified against the hospital's actual blueprint.
+                </p>
+            </div>
+
+            <aside class="directions-panel" aria-labelledby="directionsTitle">
+                <div class="directions-heading">
+                    <p class="eyebrow" data-i18n="directionsLabel">Your journey</p>
+                    <h2 id="directionsTitle" data-i18n="directionsTitle">Route instructions</h2>
+                </div>
+                <div id="routeSummary" class="route-summary" aria-live="polite" data-i18n="routePrompt">
+                    Search for a room or department to get started.
+                </div>
+                <ol id="routeSteps" class="route-steps" aria-live="polite"></ol>
+                <button
+                    id="continueRoute"
+                    class="button button-primary continue-button"
+                    type="button"
+                    hidden
+                ></button>
+                <div id="routeNotice" class="route-notice" role="status" aria-live="polite"></div>
+                <div class="start-point">
+                    <span class="start-icon" aria-hidden="true">●</span>
+                    <span>
+                        <strong data-i18n="startLabel">Starting point</strong>
+                        <span id="startPointName">Main Entrance — முக்கிய நுழைவாயில்</span>
+                    </span>
+                </div>
+            </aside>
+        </section>
+    </section>
+    <script src="../js/root.js"></script>
+    <script src="../js/2d.js"></script>
+</body>
+</html>
